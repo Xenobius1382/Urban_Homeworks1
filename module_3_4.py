@@ -5,7 +5,7 @@
 def single_root_words(root_word, *other_words):
     same_words = []
     root_word = root_word.lower()
-    other_words = list(other_words)
+    other_words = list(other_words) # преобразуем кортеж в список, чтобы применить к нему метод lower()
     other_words = [s.lower() for s in other_words]
     for i in range(len(other_words)):
         if root_word in other_words[i]:
