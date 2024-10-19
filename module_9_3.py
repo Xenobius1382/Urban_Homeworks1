@@ -6,8 +6,15 @@ first = ['Strings', 'Student', 'Computers']
 
 second = ['Строка', 'Урбан', 'Компьютер']
 
+# генераторная сборка находит разность между строками из первого и второго списка в одинаковых позициях,
+# при условии, что длины строк не равны, в сборке используется функция zip.
+
 first_result = (len(x[0]) - len(x[1]) for x in zip(first, second) if len(x[0]) != len(x[1]))
 print(list(first_result))
+
+
+# генераторная сборка сравнивает длины строк в двух списках в одинаковых позициях, если строки не равны False, если
+# равны True. В сборке не используется функция zip.
 
 second_result = (len(first[i]) == len(second[i]) for i in range(min(len(first), len(second))))
 print(list(second_result))
