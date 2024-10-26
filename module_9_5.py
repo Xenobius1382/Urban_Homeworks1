@@ -34,6 +34,7 @@ class Iterator:
         self.pointer += self.step
         return value
 
+# Проверяем работоспособность созданного итератора:
 
 try:
     iter1 = Iterator(100, 200, 0)
