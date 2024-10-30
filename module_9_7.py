@@ -4,7 +4,7 @@
 # Практически применить знания, создав функцию декоратор и обернув ею другую функцию.
 
 
-def is_prime(func):
+def is_prime(func):         # создаем декоратор
     def wrapper(*args, **kwargs):
         cnt = 0
         res = func(*args, **kwargs)
@@ -17,6 +17,7 @@ def is_prime(func):
             return f'{res} - Число составное'
     return wrapper
 
+# применяем декоратор к функции
 @is_prime
 def sum_three(a, b, c):
     return a + b + c
