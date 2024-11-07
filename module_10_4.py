@@ -16,7 +16,7 @@ class Table:
 
 class Guest(threading.Thread):
     def __init__(self, name):
-        threading.Thread.__init__(self)
+        super().__init__()
         self.name = name
 
     def run(self):
@@ -33,9 +33,10 @@ class Cafe:
         for guest in guests:
             for table in self.tables:
                 if table.guest is None:
-                    table.guest = guest
                     guest.start()
+                    table.guest = guest
                     print(f"{guest.name} сел за стол номер {table.number}")
+                    break
 
             else:
                 self.queue.put(guest)
