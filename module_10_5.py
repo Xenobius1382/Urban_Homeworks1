@@ -21,7 +21,6 @@ def read_info(name):
 
 
 
-
 if __name__ == "__main__":
 
     filenames = [f'./file {i}.txt' for i in range(1, 5)]
