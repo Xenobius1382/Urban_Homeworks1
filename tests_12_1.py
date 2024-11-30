@@ -21,18 +21,24 @@ class Runner:
         return self.name
 
 class RunnerTest(unittest.TestCase):
+
+    is_frozen = False
+
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
         man = Runner('Max')
         for _ in range(10):
             man.walk()
         self.assertEqual(man.distance, 50)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run(self):
         man = Runner('Max')
         for _ in range(10):
             man.run()
         self.assertEqual(man.distance, 100)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_challenge(self):
         man = Runner('Max')
         boy = Runner('Alex')

@@ -47,6 +47,8 @@ class Tournament:
 
 class TournamentTest(unittest.TestCase):
 
+    is_frozen = True
+
     @classmethod
     def setUpClass(cls):
         # Создаем атрибут класса all_results
@@ -57,7 +59,7 @@ class TournamentTest(unittest.TestCase):
         self.usain = Runner("Usain", 10)
         self.andrey = Runner("Andrey", 9)
         self.nick = Runner("Nick", 3)
-
+    @unittest.skipIf(is_frozen,'Тесты в этом кейсе заморожены')
     def test_usain_vs_nick(self):
         tournament = Tournament(90, self.usain, self.nick)
         results = tournament.start()
@@ -65,6 +67,7 @@ class TournamentTest(unittest.TestCase):
         self.assertEqual(results[last_runner].name, 'Nick')
         self.__class__.all_results['usain_vs_nick'] = results
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_andrey_vs_nick(self):
         tournament = Tournament(90, self.andrey, self.nick)
         results = tournament.start()
@@ -72,6 +75,7 @@ class TournamentTest(unittest.TestCase):
         self.assertEqual(results[last_runner].name, 'Nick')
         self.__class__.all_results['andrey_vs_nick'] = results
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_usain_andrey_vs_nick(self):
         tournament = Tournament(90, self.usain, self.andrey, self.nick)
         results = tournament.start()
