@@ -15,12 +15,15 @@ api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
+# инициализируем инлайн клавиатуру с двумя кнопками
+
 k_b = InlineKeyboardMarkup()
 button = InlineKeyboardButton(text='Рассчитать норму калорий', callback_data='calories')
 button_2 = InlineKeyboardButton(text='Формулы расчета', callback_data='formulas')
 k_b.add(button)
 k_b.add(button_2)
 
+# инициализируем клавиатуру кнопок
 
 kb = ReplyKeyboardMarkup(
     keyboard=[
